@@ -1,105 +1,282 @@
-/* my css file for task 1 */
-/* i learned most of this from youtube and w3schools */
+/* style.css - Task 2 */
+/* i learned flexbox, css grid and media queries this week from youtube */
+
+/* removing default margin and padding from everything */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 0;
+    background-color: #f4f4f4;
+    color: #333333;
 }
 
-/* header styling */
-.header {
-    background-color: #006064;
+/* ================================
+   NAVBAR - using Flexbox
+   i saw this layout in a traversy media tutorial
+================================ */
+.navbar {
+    background-color: #1a6b5a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 30px;
+}
+
+.logo {
     color: white;
-    text-align: center;
-    padding: 25px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.header h1 {
-    font-size: 32px;
+/* nav links also use flex to sit side by side */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* ================================
+   PAGE HEADING
+================================ */
+.page-heading {
+    text-align: center;
+    background-color: white;
+    padding: 25px 20px;
+    border-bottom: 2px solid #dddddd;
+}
+
+.page-heading h1 {
+    font-size: 22px;
+    color: #1a6b5a;
+    margin-bottom: 6px;
+}
+
+.page-heading p {
+    color: #888888;
+    font-size: 13px;
+}
+
+/* ================================
+   MAIN GRID - using CSS Grid
+   two columns side by side
+================================ */
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 25px 30px;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+/* each section box */
+.box {
+    background-color: white;
+    padding: 25px;
+    border: 1px solid #dddddd;
+}
+
+.box h2 {
+    color: #1a6b5a;
+    font-size: 18px;
+    margin-bottom: 6px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #1a6b5a;
+}
+
+.box p {
+    color: #666666;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+/* ================================
+   CONTACT FORM STYLES
+================================ */
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #444444;
     margin-bottom: 5px;
 }
 
-.header p {
-    font-size: 15px;
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #cccccc;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+}
+
+/* highlight border when clicking on input */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border: 1px solid #1a6b5a;
+    background-color: white;
+}
+
+/* error message - red */
+#error-msg {
+    color: red;
+    font-size: 13px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* success message - green */
+#success-msg {
+    color: green;
+    font-size: 13px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* ================================
+   BUTTON STYLE
+================================ */
+button {
+    background-color: #1a6b5a;
+    color: white;
+    border: none;
+    padding: 9px 18px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+button:hover {
+    background-color: #145248;
+}
+
+/* ================================
+   TO-DO LIST STYLES
+================================ */
+
+/* the row with input + add button */
+.todo-input-area {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.todo-input-area input {
+    flex: 1;
+    padding: 8px 10px;
+    border: 1px solid #cccccc;
+    font-size: 13px;
+}
+
+.todo-input-area input:focus {
+    outline: none;
+    border-color: #1a6b5a;
+}
+
+.todo-input-area button {
     margin-top: 0;
 }
 
-/* main content box */
-.container {
-    width: 750px;
-    margin: 25px auto;
-    background-color: white;
-    padding: 30px 35px;
-    border: 1px solid #cccccc;
+/* the ul list where tasks go */
+#task-list {
+    list-style: none;
+    padding: 0;
 }
 
-/* headings inside container */
-h2 {
-    color: #006064;
-    border-bottom: 2px solid #006064;
-    padding-bottom: 5px;
+/* each task item */
+#task-list li {
+    background-color: #f9f9f9;
+    border: 1px solid #dddddd;
+    padding: 9px 12px;
+    margin-bottom: 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
 }
 
-p {
-    color: #333333;
-    line-height: 1.7;
-    font-size: 15px;
-}
-
-/* list styling */
-ul {
-    margin-left: 20px;
-}
-
-li {
-    margin: 7px 0;
-    font-size: 15px;
-    color: #333;
-}
-
-/* image styling */
-img {
-    border: 3px solid #006064;
-    margin-top: 8px;
-    margin-bottom: 8px;
-}
-
-/* link styling */
-a {
-    color: #006064;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-    color: #004d40;
-}
-
-/* button styling */
-button {
-    background-color: #006064;
+/* delete button inside each task item */
+.delete-btn {
+    background-color: #cc0000;
     color: white;
-    padding: 10px 22px;
-    font-size: 15px;
     border: none;
+    padding: 4px 10px;
+    font-size: 12px;
     cursor: pointer;
-    margin-top: 8px;
-    border-radius: 4px;
+    margin-top: 0;
 }
 
-/* button color changes when you hover - learned this from a tutorial */
-button:hover {
-    background-color: #004d40;
+.delete-btn:hover {
+    background-color: #aa0000;
 }
 
-/* footer at the bottom */
+/* empty message when no tasks */
+#empty-msg {
+    color: #aaaaaa;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* ================================
+   FOOTER
+================================ */
 .footer {
-    background-color: #006064;
+    background-color: #1a6b5a;
     color: white;
     text-align: center;
     padding: 14px;
-    margin-top: 10px;
-    font-size: 14px;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+/* ================================
+   MEDIA QUERY - for mobile phones
+   learned this from a responsive design tutorial
+   when screen is small, grid becomes 1 column
+================================ */
+@media (max-width: 768px) {
+
+    /* make the grid go to 1 column on mobile */
+    .main-grid {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    /* navbar stacks vertically on phone */
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .page-heading h1 {
+        font-size: 17px;
+    }
 }

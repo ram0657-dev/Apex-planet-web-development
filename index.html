@@ -3,69 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Webpage - Task 1</title>
+    <title>Task 2 - Intermediate HTML CSS JS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- this is the top header part -->
-    <div class="header">
-        <h1>My First Webpage!</h1>
-        <p>ApexPlanet Internship - Task 1</p>
+    <!-- navbar - i used flexbox for this, learned it from a youtube video -->
+    <nav class="navbar">
+        <div class="logo">MyWebsite</div>
+        <ul class="nav-links">
+            <li><a href="#contact-section">Contact Form</a></li>
+            <li><a href="#todo-section">To-Do List</a></li>
+        </ul>
+    </nav>
+
+    <!-- page heading -->
+    <div class="page-heading">
+        <h1>Task 2 - Intermediate HTML, CSS and JavaScript</h1>
+        <p>ApexPlanet Internship | Days 10-18</p>
     </div>
 
-    <!-- main content goes here -->
-    <div class="container">
+    <!-- main area - i used css grid here to put both sections side by side -->
+    <div class="main-grid">
 
-        <h2>About Me</h2>
-        <p>
-            Hi! I am an intern at ApexPlanet Software Pvt Ltd. I am currently learning 
-            web development. This is my very first webpage that I built using HTML, CSS 
-            and JavaScript. I learned most of this from YouTube tutorials and W3Schools.
-        </p>
+        <!-- LEFT SECTION: Contact Form -->
+        <div class="box" id="contact-section">
+            <h2>Contact Form</h2>
+            <p>Please fill in all the fields below. All fields are required.</p>
 
-        <!-- added an image here -->
-        <h2>Web Development</h2>
-        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&auto=format&fit=crop" 
-             alt="coding on a laptop" 
-             width="450">
+            <!-- error and success messages - shown by javascript -->
+            <p id="error-msg"></p>
+            <p id="success-msg"></p>
 
-        <p>
-            Web development is basically making websites. I never knew how websites 
-            were made before but now I am starting to understand it. It is pretty 
-            interesting once you get the hang of it.
-        </p>
+            <div class="form-group">
+                <label for="name">Full Name :</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+            </div>
 
-        <!-- list of things i am learning -->
-        <h2>What I am Learning</h2>
-        <p>These are the 3 main things we are learning in this internship :</p>
+            <div class="form-group">
+                <label for="email">Email Address :</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
 
-        <ul>
-            <li><strong>HTML</strong> - this is for making the structure and content of the webpage</li>
-            <li><strong>CSS</strong> - this is for adding colors, fonts and making it look good</li>
-            <li><strong>JavaScript</strong> - this is for making the page interactive and doing things on click</li>
-        </ul>
+            <div class="form-group">
+                <label for="phone">Phone Number :</label>
+                <input type="text" id="phone" placeholder="Enter your phone number">
+            </div>
 
-        <h2>My Favourite Resources</h2>
-        <p>These are some websites I use to learn :</p>
+            <div class="form-group">
+                <label for="message">Your Message :</label>
+                <textarea id="message" rows="4" placeholder="Write your message here..."></textarea>
+            </div>
 
-        <ul>
-            <li><a href="https://www.w3schools.com" target="_blank">W3Schools</a> - very helpful for beginners</li>
-            <li><a href="https://developer.mozilla.org" target="_blank">MDN Docs</a> - a bit hard to understand at first</li>
-            <li><a href="https://www.youtube.com" target="_blank">YouTube</a> - I mostly watch tutorials here</li>
-        </ul>
+            <button onclick="validateForm()">Submit Form</button>
+        </div>
 
-        <!-- javascript button section -->
-        <h2>Try Clicking This Button!</h2>
-        <p>I used JavaScript to make this button show a message. It took me a while to figure out how onclick works but I got it!</p>
+        <!-- RIGHT SECTION: To-Do List -->
+        <div class="box" id="todo-section">
+            <h2>My To-Do List</h2>
+            <p>Type a task and click Add Task. Click Delete to remove it.</p>
 
-        <button onclick="showAlert()">Click Me!</button>
+            <!-- input box + button for adding new tasks -->
+            <div class="todo-input-area">
+                <input type="text" id="task-input" placeholder="Type a new task...">
+                <button onclick="addTask()">Add Task</button>
+            </div>
+
+            <!-- javascript will add tasks inside this list -->
+            <ul id="task-list">
+
+            </ul>
+
+            <!-- this shows when there are no tasks -->
+            <p id="empty-msg">No tasks added yet.</p>
+        </div>
 
     </div>
 
-    <!-- footer at the bottom -->
+    <!-- footer at the bottom of the page -->
     <div class="footer">
-        <p>Created by Me &nbsp;|&nbsp; ApexPlanet Internship &nbsp;|&nbsp; Task 1</p>
+        <p>ApexPlanet Internship - Task 2 &nbsp;|&nbsp; Made by Me</p>
     </div>
 
     <script src="script.js"></script>
